@@ -11,9 +11,11 @@ import PropTypes from "prop-types"
 import { Header } from "../layouts/header"
 import { linkList } from "../utils/link_list"
 import { LandingSection } from "../layouts/landingSections"
+import {useStaticQuery, graphql} from "gatsby";
+import { AboutSection } from "../layouts/aboutSection"
+
 
 const Layout = ({ children }) => {
-
   return (
     <>
       <LandingSection id="home">
@@ -21,6 +23,7 @@ const Layout = ({ children }) => {
           links={linkList}
         />
       </LandingSection>
+      <AboutSection />
     </>
   )
 }
