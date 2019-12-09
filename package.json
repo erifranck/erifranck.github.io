@@ -46,7 +46,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "help": "gh-pages --help",
-    "deploy": "gatsby build && gh-pages -d public -b master -u erifranjose@hotmail.com",
+    "deploy": "gatsby build && gh-pages -d public -b master -u \"Github Actions <erifranjose@hotmail.com>\"",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }
