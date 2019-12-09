@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ScoreSlide } from '../components/scoreSlide';
 import {Grid, Row, Col} from 'react-flexbox-grid';
+import {skills} from '../utils/skills'
 
 const Wrapper = styled.div`
       .container {
@@ -34,12 +35,20 @@ const Wrapper = styled.div`
       }
       .description-container {
             padding: 5px;
-            span, p {
-                  margin: 20 0;
+            .profile, .greetings {
+                  margin: 20px 0;
+            }
+            .profile {
+                  min-height: 180px;
             }
             .greetings {
+                  margin-bottom: 10px;
+                  display: block;
                   color: green;
             }
+      }
+      .slide {
+            margin: 10px 0px;
       }
 `;
 export const AboutSection = () => (
@@ -56,10 +65,18 @@ export const AboutSection = () => (
                         <Col mdOffset={1} md={6} >
                               <div className="description-container">
                                     <span className="greetings">Hello There</span>
-                                    <p>I'M ERIFRANCK NUÑEZ AND THIS IS MY STORY</p>
-                                    <p>Developer with skills jjto make illustration, i love to combine my habilities to teach about development</p>
-                                    <ScoreSlide label="web" score={100} color="#253C78" />
-                                    <ScoreSlide score={70} label="Illustration" />
+                                    <p className="presentation">I'M ERIFRANCK NUÑEZ AND THIS IS MY STORY</p>
+                                    <p className="profile">Developer with skills jjto make illustration, i love to combine my habilities to teach about development</p>
+                                    {
+                                          skills.map(item => (
+                                                <ScoreSlide
+                                                      className="slide"
+                                                      score={item.score}
+                                                      color={item.color}
+                                                      label={item.label}
+                                                />
+                                          ))
+                                    }
                               </div>
                         </Col>
                   </Row> 
