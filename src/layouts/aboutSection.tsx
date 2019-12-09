@@ -32,6 +32,15 @@ const Wrapper = styled.div`
                   z-index: 1;
             }
       }
+      .description-container {
+            padding: 5px;
+            span, p {
+                  margin: 20 0;
+            }
+            .greetings {
+                  color: green;
+            }
+      }
 `;
 export const AboutSection = () => (
       <Wrapper>
@@ -45,8 +54,8 @@ export const AboutSection = () => (
                               </div>
                         </Col>
                         <Col mdOffset={1} md={6} >
-                              <div>
-                                    <span>Hello There</span>
+                              <div className="description-container">
+                                    <span className="greetings">Hello There</span>
                                     <p>I'M ERIFRANCK NUÑEZ AND THIS IS MY STORY</p>
                                     <p>Developer with skills jjto make illustration, i love to combine my habilities to teach about development</p>
                                     <ScoreSlide label="web" score={100} color="#253C78" />
