@@ -1,29 +1,29 @@
-name: Node CI
-
-on: 
+on:
   push:
-    branches: 
+    branches:
       - develop
+name: build gatsby
 jobs:
-  build:
-
+  build_gatsby:
+    name: build
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [10.16.0]
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }} 
-    - name: npm install, build, and test
-      run: |
-        git config --global user.email "erifranjose@hotmail.com"
-        git config --global user.name "erifranck"
-        npm install
-        npm run deploy
-      env:
-        CI: true
+      - uses: actions/checkout@v1
+
+      - name: yarn install
+        run: yarn install
+
+      - name: gatsby build
+        env:
+          GH_API_KEY: ${{ secrets.GITHUB_API_KEY }}
+        run: yarn build
+
+      - name: deploy
+        uses: maxheld83/ghpages@v0.2.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GITHUB_API_KEY }}
+          BUILD_DIR: "public/"
