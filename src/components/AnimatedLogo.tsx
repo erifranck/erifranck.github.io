@@ -8,12 +8,18 @@ export const AnimatedLogo = (): ReactElement => {
   const frameLimit = 21;
   const nexFrame = useCallback(() => {
     setImageIndex((prevState) => {
-      return prevState + 1;
+      if (prevState < frameLimit) {
+        return prevState + 1;
+      }
+      return prevState;
     });
   }, []);
   const prevFrame = useCallback(() => {
     setImageIndex((prevState) => {
-      return prevState - 1;
+      if (prevState > 1) {
+        return prevState - 1;
+      }
+      return prevState;
     });
   }, []);
   const startAnimation = useCallback((firstFrame = 1) => {
@@ -50,8 +56,9 @@ export const AnimatedLogo = (): ReactElement => {
     <Flex
       justifyContent="center"
       alignItems="flex-start"
-      w="680px"
+      w="517px"
       h="280px"
+      pl="30px"
       onClick={() => toggleAnimation()}
       overflow="hidden"
     >
