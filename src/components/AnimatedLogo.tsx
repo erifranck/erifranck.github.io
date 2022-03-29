@@ -22,24 +22,30 @@ export const AnimatedLogo = (): ReactElement => {
       return prevState;
     });
   }, []);
-  const startAnimation = useCallback((firstFrame = 1) => {
-    if (firstFrame < frameLimit) {
-      requestAnimationFrame(nexFrame);
-      setTimeout(() => {
-        startAnimation(firstFrame + 1);
-      }, 50);
-      return;
-    }
-    setHasBeenAnimated(true);
-  }, []);
-  const reverseAnimation = useCallback((lastFrame = frameLimit) => {
-    if (lastFrame > 1) {
-      requestAnimationFrame(prevFrame);
-      setTimeout(() => {
-        reverseAnimation(lastFrame - 1);
-      }, 50);
-    }
-  }, []);
+  const startAnimation = useCallback(
+    (firstFrame = 1) => {
+      if (firstFrame < frameLimit) {
+        requestAnimationFrame(nexFrame);
+        setTimeout(() => {
+          startAnimation(firstFrame + 1);
+        }, 50);
+        return;
+      }
+      setHasBeenAnimated(true);
+    },
+    [nexFrame]
+  );
+  const reverseAnimation = useCallback(
+    (lastFrame = frameLimit) => {
+      if (lastFrame > 1) {
+        requestAnimationFrame(prevFrame);
+        setTimeout(() => {
+          reverseAnimation(lastFrame - 1);
+        }, 50);
+      }
+    },
+    [prevFrame]
+  );
   const toggleAnimation = useCallback(() => {
     if (!hasBeenAnimated) {
       startAnimation();
