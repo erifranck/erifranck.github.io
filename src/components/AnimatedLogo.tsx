@@ -26,9 +26,7 @@ export const AnimatedLogo = (): ReactElement => {
     (firstFrame = 1) => {
       if (firstFrame < frameLimit) {
         requestAnimationFrame(nexFrame);
-        setTimeout(() => {
-          startAnimation(firstFrame + 1);
-        }, 50);
+        requestAnimationFrame(() => startAnimation(firstFrame + 1));
         return;
       }
       setHasBeenAnimated(true);
@@ -39,9 +37,7 @@ export const AnimatedLogo = (): ReactElement => {
     (lastFrame = frameLimit) => {
       if (lastFrame > 1) {
         requestAnimationFrame(prevFrame);
-        setTimeout(() => {
-          reverseAnimation(lastFrame - 1);
-        }, 50);
+        requestAnimationFrame(() => reverseAnimation(lastFrame - 1));
       }
     },
     [prevFrame]
