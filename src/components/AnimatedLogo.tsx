@@ -28,11 +28,11 @@ export const AnimatedLogo = (): ReactElement => {
   const animationStatus = {
     lineal: `
       ${spriteAnimationX} 0.2s steps(3) 1,
-      ${spriteAnimationY} 0.6s steps(5) 1 
+      ${spriteAnimationY} 0.8s steps(5) 1 
     `,
     reverse: `
       ${spriteAnimationReverseX} 0.2s steps(3) 1,
-      ${spriteAnimationReverseY} 0.6s steps(5) 1 
+      ${spriteAnimationReverseY} 0.8s steps(5) 1 
     `,
   };
   const animation = prefersReducedMotion
