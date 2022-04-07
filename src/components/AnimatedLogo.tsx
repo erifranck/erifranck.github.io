@@ -47,7 +47,7 @@ export const AnimatedLogo = (): ReactElement => {
       h="237px"
       transform="scale(1.5)"
       mb="30px"
-      bgPosition={isReverse ? "-1px -1px" : "-1126px -1196px"}
+      bgPosition={isReverse ? "-1px -1px" : "-1px -1196px"}
       animation={animation}
       animate={{
         opacity: 1,
