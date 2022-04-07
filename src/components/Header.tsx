@@ -1,11 +1,11 @@
 import React from "react";
 import { Flex, HStack, Link } from "@chakra-ui/react";
 
-const linkList = [
+const linkList: { label: string; path: string; isExternal?: boolean }[] = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
-  { label: "Web Comic", path: "/webcomic" },
-  { label: "Blog", path: "/blog" },
+  { label: "Web Comic", path: "https://drawmy.codes/", isExternal: true },
+  { label: "Blog", path: "https://medium.com/@erifranckN", isExternal: true },
 ];
 export const Header = () => {
   return (
