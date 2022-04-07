@@ -1,75 +1,58 @@
-import React, { ReactElement, useCallback, useEffect, useState } from "react";
-import { Flex, Img } from "@chakra-ui/react";
+import React, { ReactElement } from "react";
+import { chakra, keyframes, usePrefersReducedMotion } from "@chakra-ui/react";
+import { useBoolean } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+
+const ChakraImg = chakra(motion.div);
+const spriteAnimationX = keyframes`
+  0% { background-position-x: -1px}
+  100% { background-position-x: -1126px}
+`;
+const spriteAnimationY = keyframes`
+  0% { background-position-y: -1px; }
+  100% { background-position-y: -1196px; }
+`;
+const spriteAnimationReverseX = keyframes`
+  0% { background-position-x: -1126px}
+  100% { background-position-x: -1px}
+`;
+const spriteAnimationReverseY = keyframes`
+  0% { background-position-y: -1196px; }
+  100% { background-position-y: -1px; }
+`;
 
 export const AnimatedLogo = (): ReactElement => {
-  const [imageIndex, setImageIndex] = useState(1);
-  const [hasBeenAnimated, setHasBeenAnimated] = useState(false);
-  const logoPrefix = "Presentacion-";
-  const frameLimit = 21;
-  const nexFrame = useCallback(() => {
-    setImageIndex((prevState) => {
-      if (prevState < frameLimit) {
-        return prevState + 1;
-      }
-      return prevState;
-    });
-  }, []);
-  const prevFrame = useCallback(() => {
-    setImageIndex((prevState) => {
-      if (prevState > 1) {
-        return prevState - 1;
-      }
-      return prevState;
-    });
-  }, []);
-  const startAnimation = useCallback(
-    (firstFrame = 1) => {
-      if (firstFrame < frameLimit) {
-        requestAnimationFrame(nexFrame);
-        requestAnimationFrame(() => startAnimation(firstFrame + 1));
-        return;
-      }
-      setHasBeenAnimated(true);
-    },
-    [nexFrame]
-  );
-  const reverseAnimation = useCallback(
-    (lastFrame = frameLimit) => {
-      if (lastFrame > 1) {
-        requestAnimationFrame(prevFrame);
-        requestAnimationFrame(() => reverseAnimation(lastFrame - 1));
-      }
-    },
-    [prevFrame]
-  );
-  const toggleAnimation = useCallback(() => {
-    if (!hasBeenAnimated) {
-      startAnimation();
-    } else {
-      reverseAnimation();
-      setHasBeenAnimated(false);
-    }
-  }, [hasBeenAnimated, reverseAnimation, startAnimation]);
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const [isReverse, setIsReverse] = useBoolean();
 
-  useEffect(() => {
-    startAnimation();
-  }, [startAnimation]);
+  const animationStatus = {
+    lineal: `
+      ${spriteAnimationX} 0.2s steps(3) 1,
+      ${spriteAnimationY} 0.6s steps(5) 1 
+    `,
+    reverse: `
+      ${spriteAnimationReverseX} 0.2s steps(3) 1,
+      ${spriteAnimationReverseY} 0.6s steps(5) 1 
+    `,
+  };
+  const animation = prefersReducedMotion
+    ? undefined
+    : animationStatus[isReverse ? "reverse" : "lineal"];
+
   return (
-    <Flex
-      justifyContent="center"
-      alignItems="flex-start"
-      w="517px"
-      h="280px"
-      pl="30px"
-      onClick={() => toggleAnimation()}
-      overflow="hidden"
-    >
-      <Img
-        w="1100px"
-        mt="-160px"
-        objectFit="cover"
-        src={`/assets/presentacion/${logoPrefix}${imageIndex}.png`}
-      />
-    </Flex>
+    <ChakraImg
+      onClick={setIsReverse.toggle}
+      backgroundImage="url('/assets/presentation-sprite.png')"
+      w="373px"
+      h="237px"
+      transform="scale(1.5)"
+      mb="30px"
+      bgPosition={isReverse ? "-1px -1px" : "-1126px -1196px"}
+      animation={animation}
+      animate={{
+        opacity: 1,
+      }}
+      objectFit="none"
+    />
   );
 };
