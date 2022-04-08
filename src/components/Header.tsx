@@ -49,7 +49,7 @@ export const Header = () => {
                 md: index < linkList.length - 1 ? "100px" : "0px",
                 sm: "0px",
               }}
-              mb={{ md: "0px", sm: "50px" }}
+              mb={{ md: "0px", sm: "20px" }}
               textDecor="none"
               _hover={{
                 bg: { sm: "black", md: "transparent" },

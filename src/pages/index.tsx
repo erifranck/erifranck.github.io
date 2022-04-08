@@ -9,9 +9,9 @@ export const Main = () => {
     <Box w="100vw" h="100vh" boxSizing="border-box">
       <Flex
         justifyContent="center"
-        h={{ md: "45%", sm: "min-content" }}
+        h={{ md: "45%", sm: "auto" }}
         w="100%"
-        mt={{ md: "0px", sm: "40px" }}
+        mt={{ md: "0px", sm: "10px" }}
         alignItems="flex-end"
       >
         <AnimatedLogo />
@@ -24,7 +24,7 @@ export const Main = () => {
               textTransform="uppercase"
               fontSize={{ md: "48px", sm: "24px" }}
               textAlign="center"
-              mt={{ md: "48px", sm: "10px" }}
+              mt={{ md: "48px", sm: "0px" }}
               mb="10px"
             >
               Erifranck Nuñez
@@ -38,7 +38,7 @@ export const Main = () => {
             >
               Frontend Developer
             </Text>
-            <Center mb="24px">
+            <Center mb={{ md: "24px", sm: "0px" }}>
               <SocialMedia />
             </Center>
             <Center>
