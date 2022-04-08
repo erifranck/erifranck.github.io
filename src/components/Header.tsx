@@ -1,5 +1,6 @@
 import React from "react";
-import { Flex, Link } from "@chakra-ui/react";
+import { Flex, Link as ChakraLink } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const linkList: { label: string; path: string; isExternal?: boolean }[] = [
   { label: "Home", path: "/" },
@@ -17,12 +18,19 @@ export const Header = () => {
     >
       <Flex flexDir={{ md: "row", sm: "column" }}>
         {linkList.map((item, index) => (
-          <Link
+          <ChakraLink
+            as={item.isExternal ? undefined : Link}
             boxSizing="border-box"
             key={index}
+            isExternal={item.isExternal}
+            _activeLink={{
+              border: { md: "none", sm: "1px solid black" },
+              borderBottom: "1px solid black",
+            }}
             href={item.path}
+            to={item.path}
             color="black"
-            fontSize="24px"
+            fontSize={{ md: "24px", sm: "18px" }}
             transition="0.6s"
             fontFamily="abel"
             p={{ md: "0px", sm: "10px 20px" }}
@@ -31,7 +39,7 @@ export const Header = () => {
               md: index < linkList.length - 1 ? "100px" : "0px",
               sm: "0px",
             }}
-            mb={{ md: "0px", sm: "100px" }}
+            mb={{ md: "0px", sm: "50px" }}
             textDecor="none"
             _hover={{
               border: { md: "none", sm: "1px solid black" },
@@ -42,7 +50,7 @@ export const Header = () => {
             }}
           >
             {item.label}
-          </Link>
+          </ChakraLink>
         ))}
       </Flex>
     </Flex>
