@@ -3,11 +3,24 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+
+const breakpoints = {
+  sm: "420px",
+  md: "768px",
+  lg: "960px",
+  xl: "1200px",
+  "2xl": "1536px",
+};
+
+const theme = extendTheme({ breakpoints });
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ChakraProvider theme={theme}>
+        <App />
+      </ChakraProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

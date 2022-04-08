@@ -45,8 +45,8 @@ export const AnimatedLogo = (): ReactElement => {
       backgroundImage="url('/assets/presentation-sprite.png')"
       w="373px"
       h="237px"
-      transform="scale(1.5)"
-      mb="30px"
+      transform={{ md: "scale(1.5)", sm: "scale(1)" }}
+      mb={{ md: "30px", sm: "0px" }}
       bgPosition={isReverse ? "-1px -1px" : "-1px -1196px"}
       animation={animation}
       animate={{

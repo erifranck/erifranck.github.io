@@ -6,8 +6,14 @@ import { Header } from "../components/Header";
 
 export const Main = () => {
   return (
-    <Box w="100vw" h="100vh">
-      <Flex justifyContent="center" h="45%" w="100%" alignItems="flex-end">
+    <Box w="100vw" h="100vh" boxSizing="border-box">
+      <Flex
+        justifyContent="center"
+        h={{ md: "45%", sm: "min-content" }}
+        w="100%"
+        mt={{ md: "0px", sm: "40px" }}
+        alignItems="flex-end"
+      >
         <AnimatedLogo />
       </Flex>
       <Box>
@@ -18,6 +24,7 @@ export const Main = () => {
               textTransform="uppercase"
               fontSize="48px"
               textAlign="center"
+              mt={{ md: "48px", sm: "10px" }}
               mb="10px"
             >
               Erifranck Nuñez
