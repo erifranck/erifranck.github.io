@@ -7,11 +7,11 @@ import {
   AiFillGithub,
 } from "react-icons/ai";
 import { RiInstagramFill } from "react-icons/ri";
-import TikTokIcon from "../icons/Tiktok";
+import { FaTiktok } from "react-icons/fa";
 import { IconType } from "react-icons";
 
 const networkList: { icon: IconType; url: string }[] = [
-  { icon: TikTokIcon, url: "https://www.tiktok.com/@erifranck" },
+  { icon: FaTiktok, url: "https://www.tiktok.com/@erifranck" },
   { icon: AiFillYoutube, url: "https://www.youtube.com/c/erifrancknunez" },
   { icon: AiFillTwitterSquare, url: "https://www.twitter.com/@erifranckn" },
   { icon: AiFillLinkedin, url: "https://www.linkedin.com/in/erifranck/" },
@@ -32,7 +32,10 @@ export const SocialMedia = () => {
           color="#9C9C9C"
           border="none"
           outline="none"
-          fontSize="30px"
+          fontSize={{
+            md: !index ? "22px" : "30px",
+            sm: !index ? "14px" : "18px",
+          }}
           backgroundColor="transparent"
           icon={<Icon as={social.icon} />}
           onClick={onRedirect(social.url)}
