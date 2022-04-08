@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 const breakpoints = {
-  sm: "520px",
+  sm: "300px",
   md: "800px",
   lg: "1080px",
   xl: "1200px",
