@@ -9,10 +9,12 @@ const linkList: { label: string; path: string; isExternal?: boolean }[] = [
   { label: "Blog", path: "https://medium.com/@erifranckN", isExternal: true },
 ];
 const ActiveStyles: LinkProps = {
-  border: "1px solid black",
+  bg: { sm: "black", md: "transparent" },
+  color: { sm: "white", md: "black" },
+  borderBottom: { sm: "1px solid black" },
 };
 const DefaultStyles: LinkProps = {
-  border: "none",
+  border: { sm: "1px solid black", md: "none" },
 };
 
 export const Header = () => {
@@ -30,6 +32,7 @@ export const Header = () => {
             location.pathname === item.path ? ActiveStyles : DefaultStyles;
           return (
             <ChakraLink
+              color="black"
               as={item.isExternal ? undefined : Link}
               boxSizing="border-box"
               {...styles}
@@ -37,7 +40,6 @@ export const Header = () => {
               isExternal={item.isExternal}
               href={item.path}
               to={item.path}
-              color="black"
               fontSize={{ md: "24px", sm: "18px" }}
               transition="0.6s"
               fontFamily="abel"
@@ -50,7 +52,8 @@ export const Header = () => {
               mb={{ md: "0px", sm: "50px" }}
               textDecor="none"
               _hover={{
-                border: { md: "none", sm: "1px solid black" },
+                bg: { sm: "black", md: "transparent" },
+                color: { sm: "white", md: "black" },
                 borderBottom: "1px solid black",
               }}
               _active={{
