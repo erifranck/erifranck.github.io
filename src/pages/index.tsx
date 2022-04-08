@@ -22,7 +22,7 @@ export const Main = () => {
             <Text
               fontFamily="abel"
               textTransform="uppercase"
-              fontSize="48px"
+              fontSize={{ md: "48px", sm: "24px" }}
               textAlign="center"
               mt={{ md: "48px", sm: "10px" }}
               mb="10px"
@@ -32,7 +32,7 @@ export const Main = () => {
             <Text
               fontFamily="abel"
               textTransform="uppercase"
-              fontSize="24px"
+              fontSize={{ md: "24px", sm: "14px" }}
               mt="10px"
               textAlign="center"
             >
