@@ -4,9 +4,20 @@ import {
   AiFillLinkedin,
   AiFillTwitterSquare,
   AiFillYoutube,
+  AiFillGithub,
 } from "react-icons/ai";
 import { RiInstagramFill } from "react-icons/ri";
 import TikTokIcon from "../icons/Tiktok";
+import { IconType } from "react-icons";
+
+const networkList: { icon: IconType; url: string }[] = [
+  { icon: TikTokIcon, url: "https://www.tiktok.com/@erifranck" },
+  { icon: AiFillYoutube, url: "https://www.youtube.com/c/erifrancknunez" },
+  { icon: AiFillTwitterSquare, url: "https://www.twitter.com/@erifranckn" },
+  { icon: AiFillLinkedin, url: "https://www.linkedin.com/in/erifranck/" },
+  { icon: RiInstagramFill, url: "https://www.instagram.com/erifranck" },
+  { icon: AiFillGithub, url: "https://github.com/erifranck" },
+];
 
 export const SocialMedia = () => {
   const onRedirect = useCallback(
@@ -15,57 +26,18 @@ export const SocialMedia = () => {
   );
   return (
     <HStack spacing="15px">
-      <IconButton
-        aria-label=""
-        color="#9C9C9C"
-        border="none"
-        outline="none"
-        fontSize="30px"
-        backgroundColor="transparent"
-        icon={<Icon as={TikTokIcon} />}
-        onClick={onRedirect("https://www.tiktok.com/@erifranck")}
-      />
-      <IconButton
-        aria-label=""
-        color="#9C9C9C"
-        border="none"
-        outline="none"
-        fontSize="30px"
-        backgroundColor="transparent"
-        icon={<Icon as={AiFillYoutube} />}
-        onClick={onRedirect("https://www.youtube.com/c/erifrancknunez")}
-      />
-      <IconButton
-        aria-label=""
-        color="#9C9C9C"
-        border="none"
-        outline="none"
-        fontSize="30px"
-        backgroundColor="transparent"
-        icon={<Icon as={AiFillLinkedin} />}
-        onClick={onRedirect("https://www.linkedin.com/in/erifranck/")}
-      />
-      <IconButton
-        aria-label=""
-        color="#9C9C9C"
-        border="none"
-        outline="none"
-        fontSize="30px"
-        backgroundColor="transparent"
-        icon={<Icon as={AiFillTwitterSquare} />}
-        onClick={onRedirect("https://www.twitter.com/@erifranckn")}
-      />
-
-      <IconButton
-        aria-label=""
-        color="#9C9C9C"
-        border="none"
-        outline="none"
-        fontSize="30px"
-        backgroundColor="transparent"
-        icon={<Icon as={RiInstagramFill} />}
-        onClick={onRedirect("https://www.instagram.com/erifranck")}
-      />
+      {networkList.map((social, index) => (
+        <IconButton
+          aria-label=""
+          color="#9C9C9C"
+          border="none"
+          outline="none"
+          fontSize="30px"
+          backgroundColor="transparent"
+          icon={<Icon as={social.icon} />}
+          onClick={onRedirect(social.url)}
+        />
+      ))}
     </HStack>
   );
 };
