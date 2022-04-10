@@ -6,18 +6,18 @@ import { motion } from "framer-motion";
 const ChakraImg = chakra(motion.div);
 const spriteAnimationX = keyframes`
   0% { background-position-x: -1px}
-  100% { background-position-x: -1126px}
+  100% { background-position-x: -1502px}
 `;
 const spriteAnimationY = keyframes`
   0% { background-position-y: -1px; }
-  100% { background-position-y: -1196px; }
+  100% { background-position-y: -1432px; }
 `;
 const spriteAnimationReverseX = keyframes`
-  0% { background-position-x: -1126px}
+  0% { background-position-x: -1502px}
   100% { background-position-x: -1px}
 `;
 const spriteAnimationReverseY = keyframes`
-  0% { background-position-y: -1196px; }
+  0% { background-position-y: -1432px; }
   100% { background-position-y: -1px; }
 `;
 
@@ -27,12 +27,12 @@ export const AnimatedLogo = (): ReactElement => {
 
   const animationStatus = {
     lineal: `
-      ${spriteAnimationX} 0.1s steps(3),
-      ${spriteAnimationY} 0.5s steps(5) 
+      ${spriteAnimationX} 0.2s steps(4),
+      ${spriteAnimationY} 0.6s steps(6) 
     `,
     reverse: `
-      ${spriteAnimationReverseX} 0.1s steps(3),
-      ${spriteAnimationReverseY} 0.5s steps(5)  
+      ${spriteAnimationReverseX} 0.2s steps(4),
+      ${spriteAnimationReverseY} 0.6s steps(6)  
     `,
   };
   const animation = prefersReducedMotion
