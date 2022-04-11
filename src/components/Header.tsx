@@ -5,8 +5,13 @@ import { Link, useLocation } from "react-router-dom";
 const linkList: { label: string; path: string; isExternal?: boolean }[] = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
-  { label: "Web Comic", path: "https://drawmy.codes/", isExternal: true },
   { label: "Blog", path: "https://medium.com/@erifranckN", isExternal: true },
+  {
+    label: "Lives",
+    path: "https://www.twitch.tv/erifranck/videos",
+    isExternal: true,
+  },
+  { label: "Web Comic", path: "https://drawmy.codes/", isExternal: true },
 ];
 const ActiveStyles: LinkProps = {
   bg: { sm: "black", md: "transparent" },
