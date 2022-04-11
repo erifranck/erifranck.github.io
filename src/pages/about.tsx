@@ -38,10 +38,11 @@ export const About = () => {
         <Flex
           h="100%"
           w={{ md: "60%", sm: "100%" }}
+          alignItems={{ md: "flex-end" }}
           flexDir={{ md: "row", sm: "column" }}
         >
           <Flex
-            h="100%"
+            h="70%"
             mr={{ md: "50px", sm: "0px" }}
             w={{ md: "50%", sm: "100%" }}
           >
@@ -55,7 +56,7 @@ export const About = () => {
           </Flex>
           <Flex
             alignItems="space-between"
-            h="100%"
+            h="70%"
             flexWrap="wrap"
             w={{ md: "40%", lg: "50%", sm: "100%" }}
           >
