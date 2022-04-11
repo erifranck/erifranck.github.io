@@ -7,7 +7,7 @@ import {
   AiFillGithub,
 } from "react-icons/ai";
 import { RiInstagramFill } from "react-icons/ri";
-import { FaTiktok } from "react-icons/fa";
+import { FaTiktok, FaTwitch } from "react-icons/fa";
 import { IconType } from "react-icons";
 
 const networkList: { icon: IconType; url: string }[] = [
@@ -17,6 +17,7 @@ const networkList: { icon: IconType; url: string }[] = [
   { icon: AiFillLinkedin, url: "https://www.linkedin.com/in/erifranck/" },
   { icon: RiInstagramFill, url: "https://www.instagram.com/erifranck" },
   { icon: AiFillGithub, url: "https://github.com/erifranck" },
+  { icon: FaTwitch, url: "https://www.twitch.tv/erifranck/videos" },
 ];
 
 export const SocialMedia = () => {
