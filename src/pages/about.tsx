@@ -64,7 +64,7 @@ export const About = () => {
               <Text
                 fontFamily="abel"
                 textTransform="uppercase"
-                fontSize="48px"
+                fontSize={{ md: "36px", lg: "48px", sm: "36px" }}
                 textAlign={{ md: "left", sm: "center" }}
                 mb="10px"
               >
@@ -73,9 +73,9 @@ export const About = () => {
               <Text
                 fontFamily="abel"
                 textTransform="uppercase"
-                fontSize="24px"
+                fontSize={{ md: "18px", lg: "24px" }}
                 mt="10px"
-                mb={{ md: "20px", sm: "10px" }}
+                mb={{ md: "10px", sm: "10px" }}
                 textAlign={{ md: "left", sm: "center" }}
               >
                 Frontend Developer
@@ -92,7 +92,7 @@ export const About = () => {
                 textTransform="uppercase"
                 fontSize="16px"
                 mt="0px"
-                mb={{ md: "0px", sm: "40px" }}
+                mb={{ md: "10px", sm: "40px" }}
                 textAlign="left"
               >
                 Hola soy Senior Frontend Developer, Ilustrador, amante de la
@@ -107,7 +107,7 @@ export const About = () => {
                 textTransform="uppercase"
                 fontSize="16px"
                 textAlign="left"
-                mb={{ md: "0px", sm: "40px" }}
+                mb={{ md: "10px", sm: "40px" }}
               >
                 Soy Venezolano, entrenador pokemon y amante de la gastronomia,
                 asi que podemos reunirnos en un cafe o restaurante para hablar
