@@ -34,15 +34,16 @@ export const About = () => {
         onClick={linkHandler}
         left="30px"
       />
-      <Center h={{ md: "65%", sm: "min-content" }}>
+      <Center minH={{ md: "65vh", sm: "min-content" }}>
         <Flex
           h="100%"
+          minH={{ md: "65vh", sm: "auto" }}
           w={{ md: "60%", sm: "100%" }}
           alignItems={{ md: "flex-end" }}
           flexDir={{ md: "row", sm: "column" }}
         >
           <Flex
-            h="70%"
+            h="100%"
             mr={{ md: "50px", sm: "0px" }}
             w={{ md: "50%", sm: "100%" }}
           >
