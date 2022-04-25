@@ -51,13 +51,15 @@ export const About = () => {
               src="/assets/pokemonTrainer.png"
               m="auto"
               d="block"
+              maxH="65vh"
               h={{ md: "100%", sm: "auto" }}
               w={{ md: "auto", sm: "200px" }}
             />
           </Flex>
           <Flex
             alignItems="space-between"
-            h="70%"
+            alignSelf="flex-start"
+            h="100%"
             flexWrap="wrap"
             w={{ md: "40%", lg: "50%", sm: "100%" }}
           >
@@ -120,7 +122,7 @@ export const About = () => {
                 textTransform="uppercase"
                 fontSize="16px"
                 textAlign="left"
-                mb={{ md: "0px", sm: "40px" }}
+                mb={{ md: "20px", sm: "40px" }}
               >
                 Si eres un reclutador aqui puedes descargar mi CV.
               </Text>
